@@ -1,0 +1,35 @@
+<h1>Je modifie une planète!</h1>
+
+<form #planetForm="ngForm" (ngSubmit)="editPlanet()">
+
+<label for="nom">Nom de la planète</label>
+<input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
+<div [hidden]="nom.valid"
+class="alert alert-warning">
+Merci de renseigner un nom
+</div>  
+
+<label for="nbHabitant">Nombre d'habitants sur la planète</label>
+<input type="number" class="form-control" id="nbHabitant" name="nbHabitant" required [(ngModel)]="planet.nbHabitant" #nbHabitant="ngModel">
+<div [hidden]="nbHabitant.valid"
+class="alert alert-warning">
+Merci de renseigner un nombre
+</div>
+
+<label for="allegiance">Allegiance de la planète</label>
+<input type="text" class="form-control" id="allegiance" name="allegiance" required [(ngModel)]="planet.allegiance" #allegiance="ngModel">
+<div [hidden]="allegiance.valid"
+class="alert alert-warning">
+Merci de renseigner une allegiance
+</div>
+
+<label for="nbKmTerre">Nombre de km de la Terre</label>
+<input type="number" class="form-control" id="nbKmTerre" name="nbKmTerre" required [(ngModel)]="planet.nbKmTerre" #nbKmTerre="ngModel">
+<div [hidden]="nbKmTerre.valid"
+class="alert alert-warning">
+Merci de renseigner un nbr de km
+</div>   
+
+<input class="btn-lg btn-outline-dark" [disabled]="!planetForm.valid" type="submit">
+
+</form>

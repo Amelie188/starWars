@@ -1,0 +1,28 @@
+<h1>Mes vaisseaux</h1>
+<button class="btn btn-warning"><a routerLink="/vaisseau/ajout">Ajouter un vaisseau</a></button>
+
+<table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Modèle</th>
+      <th scope="col">Plus rapide que la lumière</th>
+      <th scope="col">Nombre de passagers</th>
+      <th scope="col">Action</th>
+      <th scope="col">Suppression</th>
+      <th scope="col">Modification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let diversVaisseau of this.toutVaisseau">
+      <td>{{ diversVaisseau.nom }}</td>
+      <td>{{ diversVaisseau.modele }}</td>
+      <td>{{ diversVaisseau.lightSpeed }}</td>
+      <td>{{ diversVaisseau.nbPassenger }}</td>
+      <td><a [routerLink]="['/vaisseau', diversVaisseau.id]">En savoir plus sur {{ diversVaisseau.nom }}</a></td>
+      <td><a (click)="deleteVaisseau(diversVaisseau)">Supprimer {{ diversVaisseau.nom }}</a></td> 
+      <td><a [routerLink]="['/vaisseau/edit', diversVaisseau.id]">Modifier {{ diversVaisseau.nom }}</a></td>
+    </tr>
+</tbody>
+</table>

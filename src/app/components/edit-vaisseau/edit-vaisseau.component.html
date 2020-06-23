@@ -1,0 +1,35 @@
+<h1>Je modifie un vaisseau!</h1>
+
+<form #vaisseauForm="ngForm" (ngSubmit)="editVaisseau()">
+
+<label for="nom">Nom du vaisseau</label>
+<input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="vaisseau.nom" #nom="ngModel">
+<div [hidden]="nom.valid"
+class="alert alert-warning">
+Merci de renseigner un nom
+</div>  
+
+<label for="modele">Modèle</label>
+<input type="text" class="form-control" id="modele" name="modele" required [(ngModel)]="vaisseau.modele" #modele="ngModel">
+<div [hidden]="modele.valid"
+class="alert alert-warning">
+Merci de renseigner un modèle
+</div>
+
+<label for="lightSpeed">Vitesse de la lumière</label>
+<input type="text" class="form-control" id="lightSpeed" name="lightSpeed" required [(ngModel)]="vaisseau.lightSpeed" #lightSpeed="ngModel">
+<div [hidden]="lightSpeed.valid"
+class="alert alert-warning">
+Merci de renseigner si plus vite que la vitesse de la lumière
+</div>
+
+<label for="nbPassenger">Nombre de passager à bord</label>
+<input type="number" class="form-control" id="nbPassenger" name="nbPassenger" required [(ngModel)]="vaisseau.nbPassenger" #nbPassenger="ngModel">
+<div [hidden]="nbPassenger.valid"
+class="alert alert-warning">
+Merci de renseigner un nbr de passager à bord
+</div>   
+
+<input class="btn-lg btn-outline-dark" [disabled]="!vaisseauForm.valid" type="submit">
+
+</form>
